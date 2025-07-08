@@ -65,6 +65,7 @@ void checkStr(char *str) {
       i++;
    }
    printf("\nTrue");
+   freeStack(stack);
    return;
 }
 void freeStack(Stack *stack) {
