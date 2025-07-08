@@ -50,10 +50,10 @@ char pop(Stack *stack) {
 //       printf("%c", pop(stack));
 //    }
 // }
-void checkStr(Stack *stack) {
-   if (isEmpty(stack)) {
-      printf("\nStack rong");
-      return;
+void checkStr(char *str) {
+   Stack *stack = createStack(100);
+   for (int i=0; i<strlen(str); i++) {
+      push(stack, str[i]);
    }
    int i = 0;
    while (i<=stack->top/2) {
@@ -77,12 +77,7 @@ int main(){
    printf("Moi nhap chuoi: ");
    fgets(str, 100, stdin);
    str[strcspn(str, "\n")] = 0;
-   Stack *stack = createStack(100);
-   for (int i=0; i<strlen(str); i++) {
-      push(stack, str[i]);
-   }
    // printStack(stack);
-   checkStr(stack);
-   freeStack(stack);
+   checkStr(str);
    return 0;
 }
