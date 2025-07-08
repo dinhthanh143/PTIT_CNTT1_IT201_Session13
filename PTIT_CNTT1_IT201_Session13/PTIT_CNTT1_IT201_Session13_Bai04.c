@@ -35,8 +35,8 @@ void printStack(Stack *stack) {
         return;
     }
 
-    while (!isEmpty(stack)) {
-        printf("%d\n", pop(stack) );
+     for (int i = 0 ; i < stack->cap ; i++) {
+        printf("%d ", stack->arr[i]);
     }
 }
 int isFull(Stack *stack) {
