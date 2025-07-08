@@ -59,24 +59,29 @@ void freeStack(Stack *stack) {
     stack->arr = NULL;
     free(stack);
 }
-Stack *reverseStack(Stack *stack) {
-    if (isEmpty(stack)) {
-        return NULL;
+void *reverseStack(int *arr) {
+    Stack *reversed = createStack(5);
+    for (int i = 0; i < 5; i++) {
+        push(reversed, arr[i]);
     }
-    Stack *reversed = createStack(stack->cap);
-    while (!isEmpty(stack)) {
-        int value = pop(stack);
-        push(reversed, value);
+    for (int i = 0; i < 5; i++) {
+        arr[i] = pop(reversed);
     }
-    return reversed;
+    freeStack(reversed);
+}
+void printArr(int *arr) {
+    for (int i = 0; i < 5; i++) {
+        printf("%d\t", arr[i]);
+    }
 }
 int main(){
-    Stack *st = createStack(5);
-    for (int i = 1; i <= 5; i++) {
-        push(st, i);
+    int arr[5];
+    for (int i = 0; i <= 5; i++) {
+        arr[i] = i+1;
     }
-    st = reverseStack(st);
-    printStack(st);
-    freeStack(st);
+    printArr(arr);
+    reverseStack(arr);
+    printf("\n");
+    printArr(arr);
     return 0;
 }
