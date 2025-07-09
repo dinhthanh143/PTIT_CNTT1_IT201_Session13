@@ -12,7 +12,7 @@ Stack *createStack(int cap) {
     Stack *stack = (Stack *)malloc(sizeof(Stack));
     stack->cap = cap;
     stack->top = -1;
-    stack->c = (char *)malloc(cap * sizeof(char));
+    stack->c = (char *)malloc(cap * sizeof(char)*cap);
     return stack;
 }
 int isEmpty(Stack *stack) {
