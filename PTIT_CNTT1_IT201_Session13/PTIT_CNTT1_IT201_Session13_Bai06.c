@@ -50,6 +50,11 @@ char pop(Stack *stack) {
 //       printf("%c", pop(stack));
 //    }
 // }
+void freeStack(Stack *stack) {
+   free(stack->str);
+   stack->str = NULL;
+   free(stack);
+}
 void checkStr(char *str) {
    Stack *stack = createStack(100);
    for (int i=0; i<strlen(str); i++) {
@@ -68,11 +73,7 @@ void checkStr(char *str) {
    freeStack(stack);
    return;
 }
-void freeStack(Stack *stack) {
-   free(stack->str);
-   stack->str = NULL;
-   free(stack);
-}
+
 int main(){
    char str[100];
    printf("Moi nhap chuoi: ");
